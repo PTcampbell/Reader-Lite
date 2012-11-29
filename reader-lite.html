@@ -1,0 +1,460 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+    <head>
+	
+		<meta charset="utf-8">
+		
+		<meta name="font:Body" content="Helvetica">
+		<meta name="font:Titles" content="Baskerville">
+		
+		<meta name="color:Primary colour" content="#565656">
+		<meta name="color:Secondary colour" content="#AAAAAA">
+		<meta name="color:Tertiary colour" content="#000000">
+		<meta name="color:BG colour" content="#ffffff">
+		
+		<meta name="image:Header" content="http://static.tumblr.com/fjltjbq/v3Lm49f8r/ta.gif">
+		<meta name="if:Enable Header Image" content="0">
+		<meta name="if:Enable Heading Text" content="1">
+
+		<meta name="if:Enable Infinite Scroll" content="1">	
+		<meta name="if:High resolution photo posts" content="1">
+
+		<meta name="if:Left Align Text" content="0">
+		<meta name="if:Small meta info" content="0">
+		<meta name="if:Paragraph indentation" content="1">
+		
+		<meta name="if:Show Tumblr Links" content="0">
+		<meta name="if:Show Tags" content="0">
+		
+		<meta name="if:Show Drop Shadows" content="1">
+		<meta name="if:Show Album Art on Audio Posts" content="1">
+		<meta name="text:Disqus Shortname" content="">
+		
+		<title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+		
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+		{block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+		
+		<link href="http://static.tumblr.com/urgl1bv/gqHm3yo3j/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css">
+		<link href="http://static.tumblr.com/urgl1bv/AZam1mx1l/normalize.css" rel="stylesheet" type="text/css">
+		
+		<style type="text/css">
+		
+			/*
+			   -=  Reader Lite Tumblr Theme
+			   -=  Design & Code by Theme Anorak – themeanorak.com
+			   -=  V 1.4
+			*/
+			
+			/* -=  clearfix =-  */
+			
+			.clearfix:after { display: block; height: 0; clear: both; visibility: hidden; }
+			.clearfix { display: inline-table; }
+
+			/* -=  general and layout  =- */
+			
+			body { margin: 0 auto; width: 100%; background: {color:BG colour}; color: {color:Primary colour}; font-family: {font:Body}, Baskerville, Times, "Times New Roman", serif; font-weight: 300; font-size: 13px; line-height: 24px; {block:IfLeftAlignText}margin:0px;{/block:IfLeftAlignText} }
+			header { margin: 72px auto 66px auto; {block:IfLeftAlignText}margin:72px 0px 66px 60px;{/block:IfLeftAlignText} }
+			footer { margin: 0 auto; text-align: center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} color: {color:Secondary colour}; margin-bottom: 66px; {block:IfLeftAlignText}padding-left: 60px;{/block:IfLeftAlignText} }
+			{block:IfLeftAlignText}footer p { text-indent:0; }{/block:IfLeftAlignText}
+
+			ul#tumblr-links,
+			ul#pages { width:510px; text-align: center; padding:0px; margin:24px 0px 0px 0px; }
+			
+			#header-image { text-align:center; margin:0 auto; {block:IfLeftAlignText}text-align:left; margin:0 0 24px 0;{/block:IfLeftAlignText} }
+			img.header-image { max-width: 85%; }
+			#header-image a { text-align:center; margin:0 auto; margin-bottom:24px; border-bottom:none; padding:0px; }
+			#header-image a:hover			
+			#header-image a:active,
+			#header-image a:visited { border-bottom:none; padding:0px; }
+
+			ul#tumblr-links li,
+			ul#pages li { display:inline; margin:0px 12px; {block:IfLeftAlignText}margin:0px 24px 0px 0px;{/block:IfLeftAlignText} }
+
+			/* -=  typography  =- */
+			
+			h1 { text-align: center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} font-size: 20px; font-weight: 400; font-family: {font:Titles}; "Times New Roman", serif; }
+			h3 { text-align: center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} font-size: 13px; margin: 24px 0px 0px 0px; font-style: italic; font-weight: 300; }
+			h2 { text-align: center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} font-family: {font:Titles}, "Times New Roman", serif; font-weight: 400; font-size: 20px; margin-bottom: 18px; line-height: 32px; }
+
+			a,
+			a:visited,
+			a:active { color: {color:Tertiary colour}; text-decoration: none; border-bottom: 1px solid {color:Secondary colour}; padding-bottom: 2px; }
+			a:hover { border-bottom: 1px solid {color:Tertiary colour}; }			
+			
+			a#fancybox-close,
+			a#fancybox-close:hover,
+			a.image-link:hover,
+			a.image-link { border-bottom:none; margin:0px; }
+
+			h1 a, h2 a, h3 a { border-bottom:none; color: {color:Tertiary colour}; }
+			h1 a:hover, img a:hover, h2 a:hover, h3 a:hover { border-bottom:none; }
+			h2.quote { margin-bottom:12px; }
+			
+			{block:IfParagraphIndentation}p:first-of-type { text-indent: 0px; }{/block:IfParagraphIndentation}
+			p { {block:IfParagraphIndentation}text-indent: 24px;{/block:IfParagraphIndentation} margin-bottom: 12px; }
+			p.no-indent { text-indent:0px; }
+
+			a.no-indent,
+			a.no-indent:active,
+			a.no-indent:visited,
+			a.no-indent:hover { border-bottom:none; padding:0px; }
+			
+			blockquote { padding-left:24px; border-left:1px solid {color:Secondary colour}; font-style: italic; }
+			
+			footer a,
+			footer a:visited,
+			footer a:active { color: {color:Secondary colour}; text-decoration: none; border-bottom: none; }
+			footer a:hover { border-bottom: none; color:{color:Primary colour}; }
+			
+			nav a,
+			nav a:visited,
+			nav a:active { color: {color:Primary colour}; text-decoration: none; border-bottom: 0px solid {color:BG colour}; }
+			nav a:hover { color:{color:Tertiary colour}; border-bottom: 1px solid {color:Secondary colour}; padding-bottom: 2px; }
+			header nav { text-align:center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} }
+			
+			/* -=  posts and content styles  =- */
+			
+			.post { width: 510px; padding: 0px 30px 54px 30px; margin:0 auto; {block:IfLeftAlignText}margin:0px; padding: 0px 30px 54px 60px{/block:IfLeftAlignText} }
+			
+			.post.photoset .photoset,
+			.post.video .player,
+			.post img { padding: 5px; {block:IfLeftAlignText}padding-left:0px;{/block:IfLeftAlignText}{block:IfShowDropShadows} padding: 5px; box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.39); -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.39); -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.39); background-color:#fff;{/block:IfShowDropShadows} margin-bottom: 12px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+			
+			.post.video .player { padding-bottom:0px; }
+			.post.video iframe { margin-bottom:-2px; }
+			
+			.post ul.meta { text-align: center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} font-size:13px; letter-spacing:0px; text-transform: none; margin-bottom:0px; padding-left:0px; {block:IfSmallMetaInfo}text-transform: uppercase; font-size: 10px; letter-spacing: 1px;{/block:IfSmallMetaInfo} }
+			.post ul.meta li { display: inline; color: {color:Secondary colour}; margin-right: 12px; }
+			.post ul.meta li.tag a { padding-right:8px; }
+			.post ul.meta a { color: {color:Secondary colour}; border-bottom: none; }
+			.post ul.meta a:hover { color: {color:Tertiary colour}; border-bottom: none; }
+					
+			.post .caption { text-align:center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} }
+			.post .caption p { margin-top:0px; }
+			.post.photo a.image-link .image { margin-bottom:0px; }
+			
+			.post.photo { width:85%; text-align:center; {block:IfLeftAlignText}margin:0; text-align:left;{/block:IfLeftAlignText} }
+			.post.photo img.hires { max-width: 100%; }
+			.post.photo .caption { width:510px; margin:0 auto; {block:IfLeftAlignText}margin:0; text-align:left;{/block:IfLeftAlignText} }
+			
+			.post.text p img { max-width:500px; margin:12px 0px 0px 0px; }
+			
+			.post.link a.link h2 span { background:url('http://static.tumblr.com/urgl1bv/pW2m1w6nw/new-window.png') no-repeat; display:inline-block; width:11px; height:10px; margin-left:3px; padding-top:3px; }
+			
+			.post.quote .source { text-align:center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} }
+			
+			.post.chat p { margin:0px; padding:0px; }
+			.post.chat .lines { width:500px; margin-bottom:3px; }
+			.post.chat .label { text-align:right; font-weight:800; float:left; width:30%; {block:IfLeftAlignText}width:15%;{/block:IfLeftAlignText} }
+			.post.chat .line { text-align:left; width: 65%; padding-left:24px; float:left; }
+			
+			.post.audio { text-align:center; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} }
+			.post.audio .art img { width:207px; height:207px; }
+			.post.audio .player { margin: 0px auto 12px; border: 1px solid #ccc; width: 207px; height: 27px; {block:IfLeftAlignText}margin:12px 0px;{/block:IfLeftAlignText} }
+			
+			ol.notes a,
+			ol.notes a:active,
+			ol.notes a:visited,
+			ol.notes a:hover { border-bottom:none; padding:0px; margin:0px; }			
+			
+			ol.notes { padding:0px; list-style: none; }
+			ol.notes span a,
+			ol.notes span a:active,
+			ol.notes span a:visited { border-bottom:1px solid {color:Secondary colour}; padding-bottom:2px; }
+			ol.notes span a:hover { border-bottom:1px solid {color:Tertiary colour}; padding-bottom:2px; }
+			ol.notes a img { padding:0px 12px 0px 0px; box-shadow:none; margin:0px; border-bottom:none; border-radius:0px; }
+			.note.more_notes_link_container { margin-top:12px; {block:IfLeftAlignText}text-align: left;{/block:IfLeftAlignText} }
+			
+			#disqus_thread { margin-top:64px; }
+			.permalink-footer { margin-top:32px; width:100%; }
+			
+			#disqus_thread .dsq-textarea,
+			#disqus_thread .dsq-textarea-reply { margin-left: 56px; }
+			#disqus_thread .dsq-comment-body { padding-left:56px; }
+			#disqus_thread #dsq-content h3 { font-style:normal; text-align: left; font-weight:700; }
+			#disqus_thread img { box-shadow:none; padding:0px; background-color:none; }
+	
+			#disqus_thread a,
+			#disqus_thread a:active,
+			#disqus_thread a:visited,
+			#disqus_thread a:hover { border-bottom:none; }
+			
+			#infinite-scroll-footer { display:none; font-size:12px; }
+
+			/* -=  Options CSS  =- */
+			
+			{block:IfShowTumblrLinks}
+			header nav { width:510px; margin:24px auto 0px auto; text-align:center; {block:IfLeftAlignText}text-align: left;  margin:24px 0px 0px 0px;{/block:IfLeftAlignText} }
+			ul#tumblr-links,
+			ul#pages { width:auto; margin:0px auto; }			
+			{/block:IfShowTumblrLinks}
+			
+			{block:IfEnableInfiniteScroll}
+			footer { display:none; }
+			#infscr-loading { position:fixed; bottom:18px; right:220px; }
+			#infinite-scroll-footer { display:block; position:fixed; bottom:0px; right:20px; text-align:right; opacity:0.6; }
+			#infinite-scroll-footer:hover { opacity:1; }
+			{block:IfLeftAlignText}#infinite-scroll-footer { bottom:10px; right:30px; }{/block:IfLeftAlignText}
+			{/block:IfEnableInfiniteScroll}
+			
+			/* -=  Custom CSS  =- */
+			
+			{CustomCSS}
+		
+		</style>
+		
+		<!--[if lt IE 9]>
+			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		{block:IfEnableInfiniteScroll}<script src="http://static.tumblr.com/urgl1bv/udLm41xq0/jquery.infinitescroll.min.js"></script>{/block:IfEnableInfiniteScroll}
+		<script src="http://static.tumblr.com/urgl1bv/aP8m3ynqq/jquery.easing-1.3.pack.js"></script>
+		<script src="http://static.tumblr.com/urgl1bv/tZ8m3yne1/jquery.fancybox-1.3.4.pack.js"></script>
+		
+		<script type="text/javascript">
+		
+			// use fancybox for hi-res images
+			$(document).ready(function() {
+				$("a.image-link").fancybox();
+				noIndent();
+			});
+			// remove image indentation in paragraphs
+			function noIndent() {
+				$("a.image-link").fancybox();
+				$(".post.text p:has(img)").addClass("no-indent");
+				$(".post.text p a:has(img)").addClass("no-indent");
+			}
+			
+		</script>
+		
+		{block:IfEnableInfiniteScroll}
+		<script type="text/javascript">
+		
+			// enable infinite scroll
+			$(document).ready(function() {
+				$('section#blog').infinitescroll({
+					navSelector  : "p#pagination",
+					nextSelector : "p#pagination a#next",
+					itemSelector : "#blog .post",
+					loading: {	img : "http://static.tumblr.com/fjltjbq/wgUm4m75u/loading.gif",
+								msgText: " ",
+								finishedMsg: " " }
+					}, function(){
+					noIndent();
+				});
+			});
+			
+		</script>
+		{/block:IfEnableInfiniteScroll}
+	
+	</head>
+	
+	<body>
+		<header>
+			{block:IfEnableHeaderImage}<div id="header-image"><a href="/"><img src="{image:Header}" class="header-image" alt=""></a></div>{/block:IfEnableHeaderImage}
+			{block:IfEnableHeadingText}<h1><a href="/">{Title}</a></h1>{/block:IfEnableHeadingText}
+			<h3>{Description}</h3>
+			<nav>
+	            {block:HasPages}
+	            <ul id="pages" class="clearfix">
+	                {block:Pages}<li><a href="{URL}" class="page">{Label}</a></li>{/block:Pages}
+	            </ul>
+	            {/block:HasPages}
+	            {block:IfShowTumblrLinks}
+	            <ul id="tumblr-links" class="clearfix">
+				{block:AskEnabled}<a href="/ask" class="page">{AskLabel}</a>{/block:AskEnabled}
+					<li><a href="{RSS}">{lang:RSS feed}</a></li>
+					<li><a href="/archive">{lang:Archive}</a></li>
+					<li><a href="/random">{lang:Random}</a></li>
+	            	{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+	            </ul>
+	            {/block:IfShowTumblrLinks}
+            </nav>
+		</header>
+		
+		<section id="blog">
+		
+		{block:Posts}
+			
+			{block:Text}
+			<div class="post text">
+				{block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+				{Body}
+			<!-- / post text -->
+			{/block:Text}
+			
+			{block:Photo}
+			<div class="post photo">
+				{block:IfNotHighResolutionPhotoPosts}
+				<a href="{PhotoURL-HighRes}" class="image-link clearfix">
+					<img class="image" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+				</a>
+				{/block:IfNotHighResolutionPhotoPosts}
+				{block:IfHighResolutionPhotoPosts}
+				<a href="{PhotoURL-HighRes}" class="image-link clearfix">
+					<img class="image hires" src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+				</a>
+				{/block:IfHighResolutionPhotoPosts}
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			<!-- / post photo -->
+			{/block:Photo}
+
+			{block:Photoset}
+			<div class="post photoset">
+				{Photoset-500}
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			<!-- / post photoset -->			
+			{/block:Photoset}			
+			
+			{block:Quote}
+			<div class="post quote">
+				<a href="{LinkURL}" class="{Length}">
+					<h2 class="quote">&#8220;{Quote}&#8221;</h2>
+				</a>
+				{block:Source}
+				<div class="source">
+					&mdash;&nbsp;&nbsp;&nbsp;{Source}
+				</div>
+				{/block:Source}		
+			<!-- / post quote -->
+			{/block:Quote}
+			
+			{block:Link}
+			<div class="post link">
+				<a class="link" href="{URL}" target="{Target}">
+					<h2>{Name} <span></span></h2>
+				</a>
+				{block:Description}
+				<div class="description">
+					{Description}
+				</div>
+				{/block:Description}
+			<!-- / post link -->
+			{/block:Link}
+			
+			{block:Chat}
+			<div class="post chat">
+				{block:Title}<h2>{Title}</h2>{/block:Title}
+				<div class="clearfix">
+		        {block:Lines}
+		        <div class="lines clearfix">
+		        	<div class="label">{block:Label}<p>{Label}</p>{/block:Label}</div>
+					<div class="line"><p>{Line}</p></div>
+		        </div>
+		        {/block:Lines}
+		        </div>
+			<!-- / post chat -->	
+			{/block:Chat}
+			
+			{block:Audio}
+			<div class="post audio">
+                {block:IfShowAlbumArtOnAudioPosts}
+                    {block:AlbumArt}
+                        <div class="art">
+                            <img src="{AlbumArtURL}" alt="{block:Artist}{Artist}{/block:Artist}{block:TrackName} - {TrackName}{/block:TrackName}">
+                        </div>
+                    {/block:AlbumArt}
+                {/block:IfShowAlbumArtOnAudioPosts}    
+                <div class="player">
+                	{AudioPlayerWhite}
+                </div>
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+            <!-- / post audio -->
+            {/block:Audio}
+			
+			{block:Video}
+			<div class="post video">
+				<div class="player clearfix">
+					{Video-500}
+				</div>
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			<!-- / post video -->
+			{/block:Video}
+			
+			<!-- post meta -->
+			{block:IndexPage}
+				<ul class="meta">
+					{block:Date}<li>{DayOfMonth} {Month} {Year}</li>{/block:Date}
+					{block:NoteCount}<li><a href="{Permalink}">{NoteCountWithLabel}</a></li>{/block:NoteCount}
+					{block:IfShowTags}{block:HasTags}<li class="tag">{block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}</li>{/block:HasTags}{/block:IfShowTags}
+					{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread">{lang:View comments}</a>{/block:IfDisqusShortname}			
+				</ul>
+			{/block:IndexPage}
+			
+			{block:PermalinkPage}
+				<ul class="meta">
+					{block:Date}<li>{DayOfMonth} {Month} {Year}</li>{/block:Date}
+					{block:IfShowTags}{block:HasTags}<li class="tag">{block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}</li>{/block:HasTags}{/block:IfShowTags}
+				</ul>			
+				<div class="permalink-footer clearfix">
+					{block:PostNotes}{PostNotes}{/block:PostNotes}
+					{block:IfDisqusShortname}
+					<div id="disqus_thread"></div>
+					<script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+					<noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+					{/block:IfDisqusShortname}
+				</div>
+			{/block:PermalinkPage}
+			<!-- / post meta -->
+
+			</div>
+
+		{/block:Posts}
+		
+		</section>
+		
+		<div id="infinite-scroll-footer">
+			<p>Tumblr theme by <a href="http://themeanorak.com" title="Free and premium Tumblr themes by Theme Anorak">Theme Anorak</a></p>
+		</div>
+		
+		<footer>
+		
+			{block:Pagination}
+				<p id="pagination">
+				{block:PreviousPage}
+					<a id="prev" href="{PreviousPage}">&larr;</a>
+				{/block:PreviousPage} 
+				{CurrentPage} / {TotalPages} 
+				{block:NextPage}
+					<a id="next" href="{NextPage}">&rarr;</a>
+				{/block:NextPage}
+				</p>
+			{/block:Pagination}
+			
+			<p>Tumblr theme by <a href="http://themeanorak.com" title="Free and premium Tumblr themes by Theme Anorak">Theme Anorak</a></p>
+			
+		</footer>
+		
+	<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->	
+		  
+	</body>
+	
+</html>
